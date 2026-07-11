@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marginalia — Text &amp; Dev Tools</title>
+<meta name="description" content="Fast, free, no-signup text and developer tools: word counter, case converter, JSON formatter, Base64, URL encoding, password generator, slug generator, and Lorem Ipsum.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">¶</span>
+      <span class="brand-name">Marginalia</span>
+    </a>
+    <nav class="top-nav">
+      <a href="#tools">Tools</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ AD SLOT: leaderboard, below header ============ -->
+<div class="wrap ad-slot ad-leaderboard">
+  <div class="ad-label">Advertisement</div>
+  <!-- Paste your AdSense <ins> unit here. Recommended size: 728x90 or responsive. -->
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero wrap">
+  <p class="eyebrow">a working desk for text, not a marketing page</p>
+  <h1>Fix it in the margin.<br>Not in another tab.</h1>
+  <p class="hero-sub">Nine small tools for the edits you make fifty times a day — counting, casing, encoding, formatting. Nothing to install, nothing to sign in to, nothing saved.</p>
+</section>
+
+<!-- ============ TOOL INDEX ============ -->
+<main class="wrap" id="tools">
+  <div class="catalog-heading">
+    <span class="catalog-label">01 — the catalog</span>
+    <h2>Pick a tool</h2>
+  </div>
+
+  <div class="card-grid">
+
+    <!-- WORD COUNTER -->
+    <details class="tool-card" id="counter">
+      <summary>
+        <span class="tool-index">01</span>
+        <span class="tool-title">Word &amp; Character Counter</span>
+        <span class="tool-desc">Words, characters, sentences, reading time.</span>
+      </summary>
+      <div class="tool-body">
+        <textarea id="counter-input" placeholder="Paste or type your text here…" rows="8"></textarea>
+        <div class="stat-row">
+          <div class="stat"><span id="stat-words">0</span><label>words</label></div>
+          <div class="stat"><span id="stat-chars">0</span><label>characters</label></div>
+          <div class="stat"><span id="stat-nospace">0</span><label>no spaces</label></div>
+          <div class="stat"><span id="stat-sentences">0</span><label>sentences</label></div>
+          <div class="stat"><span id="stat-time">0s</span><label>read time</label></div>
+        </div>
+        <div class="tool-info">
+          <p>A word counter tallies how many words, characters, and sentences are in a piece of text, and estimates how long it takes an average reader to get through it. Writers use it to hit an assignment's word limit; editors use it to see if a paragraph has run long; students use it to check an essay meets a minimum. This one also strips spaces from the character count separately, since "characters with spaces" and "characters without" are counted differently by most style guides and submission forms.</p>
+          <p>Reading time here is estimated at roughly 200 words per minute, which is the commonly cited average adult silent-reading speed. It's a rough guide, not a guarantee — dense technical writing reads slower, casual prose reads faster.</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- CASE CONVERTER -->
+    <details class="tool-card" id="case">
+      <summary>
+        <span class="tool-index">02</span>
+        <span class="tool-title">Case Converter</span>
+        <span class="tool-desc">UPPER, lower, Title, Sentence, camelCase, snake_case.</span>
+      </summary>
+      <div class="tool-body">
+        <textarea id="case-input" placeholder="Type text to convert…" rows="6"></textarea>
+        <div class="btn-row">
+          <button data-case="upper">UPPERCASE</button>
+          <button data-case="lower">lowercase</button>
+          <button data-case="title">Title Case</button>
+          <button data-case="sentence">Sentence case</button>
+          <button data-case="camel">camelCase</button>
+          <button data-case="snake">snake_case</button>
+          <button data-case="kebab">kebab-case</button>
+        </div>
+        <div class="output-block">
+          <textarea id="case-output" readonly rows="6" placeholder="Result appears here…"></textarea>
+          <button class="copy-btn" data-copy="case-output">Copy</button>
+        </div>
+        <div class="tool-info">
+          <p>Case converters switch text between the capitalization styles used in writing and in code. <strong>Title Case</strong> and <strong>Sentence case</strong> are for headlines and prose. <strong>camelCase</strong> and <strong>snake_case</strong> are naming conventions programmers use for variables — camelCase is standard in JavaScript, snake_case is standard in Python. <strong>kebab-case</strong> is common in URLs and CSS class names, since spaces and underscores aren't always safe there.</p>
+          <p>Retyping a heading in all caps, or renaming a variable to match a team's style guide, is a small task that's easy to get wrong by hand — a stray capital or a missed underscore breaks code silently. This tool applies the rule consistently across the whole block of text at once.</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- JSON FORMATTER -->
+    <details class="tool-card" id="json">
+      <summary>
+        <span class="tool-index">03</span>
+        <span class="tool-title">JSON Formatter &amp; Validator</span>
+        <span class="tool-desc">Pretty-print, minify, and catch syntax errors.</span>
+      </summary>
+      <div class="tool-body">
+        <textarea id="json-input" placeholder='Paste JSON, e.g. {"a":1,"b":[2,3]}' rows="8"></textarea>
+        <div class="btn-row">
+          <button id="json-format">Format</button>
+          <button id="json-minify">Minify</button>
+        </div>
+        <div id="json-status" class="status"></div>
+        <div class="output-block">
+          <textarea id="json-output" readonly rows="8" placeholder="Formatted JSON appears here…"></textarea>
+          <button class="copy-btn" data-copy="json-output">Copy</button>
+        </div>
+        <div class="tool-info">
+          <p>JSON (JavaScript Object Notation) is the format most web APIs use to send data back and forth — it's built from nested key-value pairs, lists, and a few basic data types. When JSON is generated by a server or squeezed into a log file, it often arrives as one unreadable line. Formatting adds consistent indentation so the structure — which brackets belong to which object — becomes visible at a glance.</p>
+          <p>The validator half matters just as much as the formatting: a single missing comma or unclosed bracket will make an entire JSON document fail to parse, and the error messages from most systems don't point at the problem clearly. This tool flags exactly where parsing breaks, which is usually faster than reading the raw text character by character. Minify does the reverse of formatting — it strips whitespace, which is useful when you need to paste JSON somewhere with a size limit or ship it in production where every byte counts.</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- BASE64 -->
+    <details class="tool-card" id="base64">
+      <summary>
+        <span class="tool-index">04</span>
+        <span class="tool-title">Base64 Encode / Decode</span>
+        <span class="tool-desc">Convert text to and from Base64.</span>
+      </summary>
+      <div class="tool-body">
+        <textarea id="b64-input" placeholder="Type text or Base64 here…" rows="6"></textarea>
+        <div class="btn-row">
+          <button id="b64-encode">Encode</button>
+          <button id="b64-decode">Decode</button>
+        </div>
+        <div id="b64-status" class="status"></div>
+        <div class="output-block">
+          <textarea id="b64-output" readonly rows="6" placeholder="Result appears here…"></textarea>
+          <button class="copy-btn" data-copy="b64-output">Copy</button>
+        </div>
+        <div class="tool-info">
+          <p>Base64 is a way of representing binary data — or any text — using only 64 printable characters (letters, digits, plus a couple of symbols). It's not encryption and it isn't meant to keep anything secret; it exists because some systems, like older email formats or certain URL fields and config files, can only reliably handle plain text characters, not arbitrary bytes. Base64 lets images, files, or unusual text get carried safely through those systems.</p>
+          <p>Common real-world uses: embedding a small image directly inside a CSS or HTML file instead of linking to a separate file, encoding API keys or credentials inside configuration strings, or reading a JSON Web Token (JWT), which stores its payload as Base64 between two dots.</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- URL ENCODE -->
+    <details class="tool-card" id="urlenc">
+      <summary>
+        <span class="tool-index">05</span>
+        <span class="tool-title">URL Encode / Decode</span>
+        <span class="tool-desc">Percent-encode strings for safe use in URLs.</span>
+      </summary>
+      <div class="tool-body">
+        <textarea id="url-input" placeholder="Type a string or URL…" rows="5"></textarea>
+        <div class="btn-row">
+          <button id="url-encode">Encode</button>
+          <button id="url-decode">Decode</button>
+        </div>
+        <div class="output-block">
+          <textarea id="url-output" readonly rows="5" placeholder="Result appears here…"></textarea>
+          <button class="copy-btn" data-copy="url-output">Copy</button>
+        </div>
+        <div class="tool-info">
+          <p>URLs can only safely contain a limited set of characters. Anything outside that set — spaces, ampersands, question marks, accented letters, emoji — has to be "percent-encoded" into a %XX format before it can be passed as part of a link or a query string without breaking it. A space becomes <code>%20</code>, an ampersand becomes <code>%26</code>, and so on.</p>
+          <p>This matters most when a piece of text is going to be dropped into a URL parameter — a search query, a redirect link, a tracking tag — since an unencoded special character can cut the URL short or point somewhere unintended. Decoding does the reverse: it turns a percent-encoded string back into readable text, useful for reading what a long tracking link actually says.</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- PASSWORD GENERATOR -->
+    <details class="tool-card" id="password">
+      <summary>
+        <span class="tool-index">06</span>
+        <span class="tool-title">Password Generator</span>
+        <span class="tool-desc">Random passwords with adjustable length and character sets.</span>
+      </summary>
+      <div class="tool-body">
+        <div class="field-row">
+          <label for="pw-length">Length: <span id="pw-length-val">16</span></label>
+          <input type="range" id="pw-length" min="6" max="64" value="16">
+        </div>
+        <div class="checkbox-row">
+          <label><input type="checkbox" id="pw-upper" checked> Uppercase (A–Z)</label>
+          <label><input type="checkbox" id="pw-lower" checked> Lowercase (a–z)</label>
+          <label><input type="checkbox" id="pw-numbers" checked> Numbers (0–9)</label>
+          <label><input type="checkbox" id="pw-symbols" checked> Symbols (!@#$…)</label>
+        </div>
+        <button id="pw-generate">Generate password</button>
+        <div class="output-block">
+          <input type="text" id="pw-output" readonly placeholder="Your password appears here…">
+          <button class="copy-btn" data-copy="pw-output">Copy</button>
+        </div>
+        <div class="tool-info">
+          <p>A strong password is long and unpredictable — length matters more than complexity rules. A 16-character password drawn from a large character set is far harder to guess or brute-force than an 8-character one with a forced capital letter and a digit swapped in. This generator uses your browser's built-in cryptographically secure random number generator (<code>crypto.getRandomValues</code>), not a simple pseudo-random function, so the output isn't predictable.</p>
+          <p>It's worth using a different password for every account and storing them in a password manager rather than memorizing or reusing them — reused passwords are one of the most common ways accounts get compromised after a breach on some unrelated site.</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- SLUG GENERATOR -->
+    <details class="tool-card" id="slug">
+      <summary>
+        <span class="tool-index">07</span>
+        <span class="tool-title">Slug Generator</span>
+        <span class="tool-desc">Turn titles into clean, URL-friendly slugs.</span>
+      </summary>
+      <div class="tool-body">
+        <input type="text" id="slug-input" placeholder="e.g. My Great Blog Post!">
+        <div class="output-block">
+          <input type="text" id="slug-output" readonly placeholder="my-great-blog-post">
+          <button class="copy-btn" data-copy="slug-output">Copy</button>
+        </div>
+        <div class="tool-info">
+          <p>A slug is the part of a URL that identifies a specific page — in <code>example.com/my-great-blog-post</code>, "my-great-blog-post" is the slug. Slugs are lowercase, use hyphens instead of spaces, and drop punctuation, because that combination is safe in every browser, doesn't need percent-encoding, and reads cleanly to both humans and search engines.</p>
+          <p>Most blogging and e-commerce platforms generate a slug automatically from a title, but they don't always do it well — long titles get truncated awkwardly, or special characters get left in. This tool applies the standard slug rules directly, so you can paste the exact result into a CMS's URL field.</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- LOREM IPSUM -->
+    <details class="tool-card" id="lorem">
+      <summary>
+        <span class="tool-index">08</span>
+        <span class="tool-title">Lorem Ipsum Generator</span>
+        <span class="tool-desc">Placeholder text by paragraph, sentence, or word count.</span>
+      </summary>
+      <div class="tool-body">
+        <div class="field-row">
+          <label for="lorem-count">Paragraphs: <span id="lorem-count-val">3</span></label>
+          <input type="range" id="lorem-count" min="1" max="10" value="3">
+        </div>
+        <button id="lorem-generate">Generate</button>
+        <div class="output-block">
+          <textarea id="lorem-output" readonly rows="8" placeholder="Placeholder text appears here…"></textarea>
+          <button class="copy-btn" data-copy="lorem-output">Copy</button>
+        </div>
+        <div class="tool-info">
+          <p>Lorem Ipsum is placeholder text designers and developers drop into a layout before the real copy is ready, so they can judge spacing, line length, and typography without being distracted by actual content. It's derived from a scrambled passage of Latin, which is precisely the point — it looks like real text at a glance without any word standing out or reading as meaningful, so reviewers focus on the design rather than the words.</p>
+          <p>It's been the industry-standard filler text since long before digital design; it just carried over from print typesetting into web and app mockups.</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- TEXT DIFF -->
+    <details class="tool-card" id="diff">
+      <summary>
+        <span class="tool-index">09</span>
+        <span class="tool-title">Text Diff Checker</span>
+        <span class="tool-desc">Compare two blocks of text line by line.</span>
+      </summary>
+      <div class="tool-body">
+        <div class="diff-grid">
+          <textarea id="diff-a" placeholder="Original text…" rows="8"></textarea>
+          <textarea id="diff-b" placeholder="Changed text…" rows="8"></textarea>
+        </div>
+        <button id="diff-run">Compare</button>
+        <div id="diff-output" class="diff-output"></div>
+        <div class="tool-info">
+          <p>A diff checker compares two versions of a text and highlights exactly what changed, line by line — additions in one color, removals in another. It's the same idea version control tools like Git use to show what a commit changed, applied here to any two blocks of text: a contract redline, two drafts of an email, or a config file before and after an edit.</p>
+          <p>This is a line-based diff, which means it compares whole lines rather than individual words — the clearest view when comparing paragraphs, code, or structured text where line breaks carry meaning.</p>
+        </div>
+      </div>
+    </details>
+
+  </div>
+</main>
+
+<!-- ============ FAQ ============ -->
+<section class="wrap" id="faq">
+  <div class="catalog-heading">
+    <span class="catalog-label">02 — questions worth answering</span>
+    <h2>Frequently asked</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h3>Is anything I type saved or sent anywhere?</h3>
+      <p>No. Every tool on this page runs in your browser using JavaScript. Nothing you paste in is uploaded to a server, logged, or stored — closing the tab clears it completely.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to create an account?</h3>
+      <p>No account, no email, no sign-in. Every tool works immediately, and there's no limit on how many times you can use one.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does this work on mobile?</h3>
+      <p>Yes — the layout adjusts for smaller screens, and every tool works the same on a phone or tablet browser as it does on desktop.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why is it called Marginalia?</h3>
+      <p>Marginalia are the notes readers and editors leave in the margins of a page — corrections, quick calculations, shorthand. That's the spirit of these tools: small, fast fixes made in passing, not a destination to sit and work in for an hour.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AD SLOT: in-content, before footer ============ -->
+<div class="wrap ad-slot ad-infeed">
+  <div class="ad-label">Advertisement</div>
+  <!-- Paste your AdSense <ins> unit here. Recommended size: responsive in-feed. -->
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <span class="brand-mark">¶</span> Marginalia — small tools, used often.
+    </div>
+    <nav class="footer-nav">
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+/* ============================================================
+   Marginalia — design tokens
+   Concept: a copyeditor's desk. Paper, ink, red pencil marks.
+   ============================================================ */
+:root{
+  --paper: #EDE8DC;
+  --paper-card: #FBF8F1;
+  --ink: #21261F;
+  --ink-soft: #55584E;
+  --pencil-red: #B8443A;
+  --highlight: #E3B23C;
+  --rule: #C9C2AC;
+  --rule-strong: #A79E82;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --radius: 3px;
+}
+
+*{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(180deg, transparent, transparent 38px, rgba(85,88,78,0.05) 39px);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap{
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a{ color: var(--ink); }
+
+/* ---------- header ---------- */
+.site-header{
+  border-bottom: 2px solid var(--ink);
+  background: var(--paper);
+}
+.header-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.brand{
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.brand-mark{
+  font-family: var(--mono);
+  color: var(--pencil-red);
+  font-size: 22px;
+}
+.brand-name{
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-size: 19px;
+}
+.top-nav{ display: flex; gap: 28px; font-family: var(--mono); font-size: 14px; }
+.top-nav a{ text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 2px; }
+.top-nav a:hover{ border-bottom-color: var(--pencil-red); }
+
+/* ---------- ad slots ---------- */
+.ad-slot{
+  margin: 28px auto;
+  padding: 14px;
+  border: 1px dashed var(--rule-strong);
+  border-radius: var(--radius);
+  text-align: center;
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 12px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ad-label{ text-transform: uppercase; letter-spacing: 0.12em; }
+
+/* ---------- hero ---------- */
+.hero{ padding: 56px 24px 40px; }
+.eyebrow{
+  font-family: var(--mono);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--pencil-red);
+  margin: 0 0 14px;
+}
+.hero h1{
+  font-size: 46px;
+  line-height: 1.12;
+  margin: 0 0 18px;
+  font-weight: 700;
+  max-width: 14ch;
+}
+.hero-sub{
+  max-width: 54ch;
+  color: var(--ink-soft);
+  font-size: 18px;
+}
+
+/* ---------- catalog heading ---------- */
+.catalog-heading{
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 40px 0 20px;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 12px;
+}
+.catalog-label{
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--pencil-red);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.catalog-heading h2{ margin: 0; font-size: 22px; }
+
+/* ---------- tool cards (index card look) ---------- */
+.card-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+.tool-card{
+  background: var(--paper-card);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  box-shadow: 2px 2px 0 rgba(33,38,35,0.06);
+}
+.tool-card[open]{
+  border-color: var(--pencil-red);
+}
+.tool-card summary{
+  cursor: pointer;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  align-items: baseline;
+  padding: 18px 20px;
+  gap: 4px 14px;
+}
+.tool-card summary::-webkit-details-marker{ display:none; }
+.tool-index{
+  font-family: var(--mono);
+  color: var(--pencil-red);
+  font-weight: 700;
+  font-size: 14px;
+}
+.tool-title{
+  font-weight: 600;
+  font-size: 17px;
+  grid-column: 2;
+}
+.tool-desc{
+  grid-column: 2;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+.tool-card[open] summary{ border-bottom: 1px dashed var(--rule); }
+
+.tool-body{
+  padding: 6px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ---------- form elements ---------- */
+textarea, input[type="text"], input[type="search"]{
+  width: 100%;
+  font-family: var(--mono);
+  font-size: 14px;
+  background: #fff;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  color: var(--ink);
+  resize: vertical;
+}
+textarea:focus, input:focus{
+  outline: 2px solid var(--pencil-red);
+  outline-offset: 1px;
+}
+textarea[readonly]{ background: #F4F1E7; }
+
+.btn-row, .checkbox-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+button{
+  font-family: var(--mono);
+  font-size: 13px;
+  background: var(--ink);
+  color: var(--paper-card);
+  border: none;
+  border-radius: var(--radius);
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+button:hover{ background: var(--pencil-red); }
+button:focus-visible{ outline: 2px solid var(--pencil-red); outline-offset: 2px; }
+
+.output-block{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.copy-btn{
+  align-self: flex-start;
+  background: transparent;
+  color: var(--pencil-red);
+  border: 1px solid var(--pencil-red);
+  padding: 6px 12px;
+}
+.copy-btn:hover{ background: var(--pencil-red); color: #fff; }
+
+.field-row{ display: flex; flex-direction: column; gap: 6px; font-family: var(--mono); font-size: 13px; }
+.field-row input[type="range"]{ width: 100%; }
+.checkbox-row label{ font-family: var(--mono); font-size: 13px; display: flex; align-items: center; gap: 6px; }
+
+.stat-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  padding-top: 6px;
+}
+.stat{ display: flex; flex-direction: column; }
+.stat span{ font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--pencil-red); }
+.stat label{ font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.06em; }
+
+.status{ font-family: var(--mono); font-size: 13px; }
+.status.error{ color: var(--pencil-red); }
+.status.ok{ color: #3E6B4A; }
+
+.tool-info{
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--rule);
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.tool-info p{ margin: 0 0 10px; }
+.tool-info p:last-child{ margin-bottom: 0; }
+.tool-info code{
+  font-family: var(--mono);
+  font-size: 0.9em;
+  background: #F4F1E7;
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: var(--ink);
+}
+.tool-info strong{ color: var(--ink); }
+
+.diff-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.diff-output{
+  font-family: var(--mono);
+  font-size: 13px;
+  background: #fff;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  padding: 12px;
+  white-space: pre-wrap;
+  min-height: 40px;
+}
+.diff-add{ background: #DCEFE1; text-decoration: none; }
+.diff-del{ background: #F6D9D6; text-decoration: line-through; color: var(--ink-soft); }
+
+/* ---------- FAQ ---------- */
+.faq-list{
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 44px;
+}
+.faq-item h3{
+  font-size: 17px;
+  margin: 0 0 6px;
+}
+.faq-item p{
+  margin: 0;
+  color: var(--ink-soft);
+  max-width: 68ch;
+}
+
+/* ---------- footer ---------- */
+.site-footer{
+  border-top: 2px solid var(--ink);
+  margin-top: 40px;
+  padding: 24px 0 40px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.footer-inner{ display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.footer-nav{ display: flex; gap: 18px; }
+.footer-nav a{ text-decoration: none; color: var(--ink-soft); }
+.footer-nav a:hover{ color: var(--pencil-red); }
+
+/* ---------- simple content pages (about/privacy) ---------- */
+.content-page{ padding: 50px 24px 60px; }
+.content-page h1{ font-size: 34px; margin-bottom: 6px; }
+.content-page .eyebrow{ margin-bottom: 8px; }
+.content-page h2{ font-size: 20px; margin-top: 34px; }
+.content-page p{ color: var(--ink-soft); max-width: 68ch; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 640px){
+  .hero h1{ font-size: 32px; }
+  .diff-grid{ grid-template-columns: 1fr; }
+  .tool-card summary{ grid-template-columns: 32px 1fr; }
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ transition: none !important; }
+}
