@@ -386,6 +386,39 @@ input[type="checkbox"]{ accent-color: var(--accent); }
 #recent-list li{ display: flex; justify-content: space-between; gap: 8px; }
 #recent-list .recent-time{ font-family: var(--mono); font-size: 11px; color: var(--ink-soft); opacity: 0.7; white-space: nowrap; }
 
+/* ---------- margin ruler: fills empty edge space on wide screens ---------- */
+.margin-ruler{
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 34px;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(180deg, var(--rule) 0, var(--rule) 1px, transparent 1px, transparent 24px),
+    repeating-linear-gradient(180deg, var(--accent) 0, var(--accent) 1px, transparent 1px, transparent 120px);
+}
+.margin-ruler.left{ left: 0; border-right: 1px solid var(--rule); }
+.margin-ruler.right{ right: 0; border-left: 1px solid var(--rule); }
+.margin-ruler .ruler-label{
+  writing-mode: vertical-rl;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.6;
+}
+@media (min-width: 1500px){
+  .margin-ruler{ display: block; }
+}
+
 .diff-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .diff-output{
   font-family: var(--mono);
