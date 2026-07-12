@@ -46,8 +46,21 @@
   </div>
 </section>
 
+<!-- ============ INTRO CONTENT ============ -->
+<section class="wrap intro-copy">
+  <p>Most "productivity" tools ask for an account before they'll do anything, which is a strange amount of friction for a task that takes five seconds — checking whether a JSON blob is valid, converting a heading to Title Case, or generating a password before a form times out. Marginalia exists for exactly that category of task: small, specific, done in passing, forgotten five minutes later.</p>
+  <p>Every tool here runs as plain JavaScript in your browser tab. There's no backend processing your text, no database logging what you typed, and no reason to trust a third party with a password you're about to generate or a JSON payload that might contain something private. That constraint — everything has to work without a server — is also why the tool list stays narrow and specific rather than trying to be one bloated all-in-one workspace.</p>
+</section>
+
+<!-- ============ AD SLOT: after intro ============ -->
+<div class="wrap ad-slot ad-intro">
+  <div class="ad-label">Advertisement</div>
+  <!-- Paste your AdSense <ins> unit here. Recommended size: responsive horizontal. -->
+</div>
+
 <!-- ============ TOOL INDEX ============ -->
-<main class="wrap" id="tools">
+<main class="wrap-wide layout-grid" id="tools">
+<div class="tools-main">
   <div class="catalog-heading">
     <span class="catalog-label">01 — the catalog</span>
     <h2>Pick a tool</h2>
@@ -259,6 +272,12 @@
       </div>
     </details>
 
+    <!-- AD SLOT: mid-grid -->
+    <div class="ad-slot ad-mid-grid">
+      <div class="ad-label">Advertisement</div>
+      <!-- Paste your AdSense <ins> unit here. Recommended size: responsive in-feed. -->
+    </div>
+
     <!-- REGEX TESTER -->
     <details class="tool-card" id="regex" data-search="regex regular expression tester pattern match">
       <summary>
@@ -364,6 +383,41 @@
   </div>
 
   <p class="no-results" id="no-results">No tools match that search.</p>
+</div>
+
+<aside class="tools-sidebar">
+  <div class="sidebar-block">
+    <h3>Jump to a tool</h3>
+    <ul>
+      <li><a href="#counter">Word &amp; Character Counter</a></li>
+      <li><a href="#json">JSON Formatter</a></li>
+      <li><a href="#password">Password Generator</a></li>
+      <li><a href="#regex">Regex Tester</a></li>
+      <li><a href="#color">Color Converter</a></li>
+      <li><a href="#timestamp">Timestamp Converter</a></li>
+    </ul>
+  </div>
+
+  <div class="ad-slot ad-sidebar">
+    <div class="ad-label">Advertisement</div>
+    <!-- Paste your AdSense <ins> unit here. Recommended size: 300x250 or 300x600. -->
+  </div>
+
+  <div class="sidebar-block">
+    <h3>Quick tips</h3>
+    <ul>
+      <li>Every tool keeps working offline once the page has loaded — no connection needed after that.</li>
+      <li>Use the filter box above the catalog to jump straight to a tool by keyword.</li>
+      <li>Nothing is saved between visits — copy your result before closing the tab.</li>
+      <li>All tools work the same on mobile as on desktop.</li>
+    </ul>
+  </div>
+
+  <div class="ad-slot ad-sidebar">
+    <div class="ad-label">Advertisement</div>
+    <!-- Paste your AdSense <ins> unit here. Recommended size: 300x250 or 300x600. -->
+  </div>
+</aside>
 </main>
 
 <!-- ============ FAQ ============ -->
@@ -388,6 +442,14 @@
     <div class="faq-item">
       <h3>Why is it called Marginalia?</h3>
       <p>Marginalia are the notes readers and editors leave in the margins of a page — corrections, quick calculations, shorthand. That's the spirit of these tools: small, fast fixes made in passing, not a destination to sit and work in for an hour.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Will there be more tools added?</h3>
+      <p>Yes — new tools get added when they fit the same pattern as the rest: a specific, recurring task that doesn't need an account or a server to solve. Suggestions are welcome via the contact address on the privacy page.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use these tools for commercial or client work?</h3>
+      <p>Yes. There's no restriction on what you use the output for — passwords, slugs, converted colors, formatted JSON, and everything else generated here are yours to use freely.</p>
     </div>
   </div>
 </section>
