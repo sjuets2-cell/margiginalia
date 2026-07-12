@@ -6,7 +6,7 @@
 <title>Marginalia — Text &amp; Dev Tools</title>
 <meta name="description" content="Free, no-signup text and developer tools: word counter, case converter, JSON formatter, Base64, URL encoding, password generator, slug generator, Lorem Ipsum, regex tester, color converter, timestamp converter, and text diff.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4453090806699037" crossorigin="anonymous"></script>
 </head>
@@ -93,6 +93,10 @@
           <p>Reading time here is estimated at roughly 200 words per minute, the commonly cited average adult silent-reading speed. It's a rough guide, not a guarantee — dense technical writing reads slower, casual prose reads faster.</p>
         </div>
       </div>
+        <div class="margin-note">
+          <label for="note-counter">&#9998; leave yourself a note here (saved on this device only)</label>
+          <textarea class="note-input" id="note-counter" data-note-id="counter" rows="2" placeholder="e.g. — used this for the newsletter draft"></textarea>
+        </div>
     </details>
 
     <!-- CASE CONVERTER -->
@@ -122,6 +126,10 @@
           <p>Retyping a heading in all caps, or renaming a variable to match a team's style guide, is a small task that's easy to get wrong by hand — a stray capital or a missed underscore breaks code silently. This tool applies the rule consistently across the whole block of text at once.</p>
         </div>
       </div>
+        <div class="margin-note">
+          <label for="note-case">&#9998; leave yourself a note here (saved on this device only)</label>
+          <textarea class="note-input" id="note-case" data-note-id="case" rows="2" placeholder="e.g. — used this for the newsletter draft"></textarea>
+        </div>
     </details>
 
     <!-- JSON FORMATTER -->
@@ -147,6 +155,10 @@
           <p>The validator half matters just as much: a single missing comma or unclosed bracket makes an entire document fail to parse, and most systems don't point at the problem clearly. This tool flags exactly where parsing breaks. Minify does the reverse — strips whitespace, useful when shipping JSON to production where every byte counts.</p>
         </div>
       </div>
+        <div class="margin-note">
+          <label for="note-json">&#9998; leave yourself a note here (saved on this device only)</label>
+          <textarea class="note-input" id="note-json" data-note-id="json" rows="2" placeholder="e.g. — used this for the newsletter draft"></textarea>
+        </div>
     </details>
 
     <!-- BASE64 -->
@@ -172,6 +184,10 @@
           <p>Common real-world uses: embedding a small image directly inside a CSS or HTML file, encoding API keys inside configuration strings, or reading a JSON Web Token (JWT), which stores its payload as Base64 between two dots.</p>
         </div>
       </div>
+        <div class="margin-note">
+          <label for="note-base64">&#9998; leave yourself a note here (saved on this device only)</label>
+          <textarea class="note-input" id="note-base64" data-note-id="base64" rows="2" placeholder="e.g. — used this for the newsletter draft"></textarea>
+        </div>
     </details>
 
     <!-- URL ENCODE -->
@@ -196,6 +212,10 @@
           <p>This matters most when text is going into a URL parameter — a search query, a redirect link, a tracking tag — since an unencoded special character can cut a URL short. Decoding does the reverse, useful for reading what a long tracking link actually says.</p>
         </div>
       </div>
+        <div class="margin-note">
+          <label for="note-urlenc">&#9998; leave yourself a note here (saved on this device only)</label>
+          <textarea class="note-input" id="note-urlenc" data-note-id="urlenc" rows="2" placeholder="e.g. — used this for the newsletter draft"></textarea>
+        </div>
     </details>
 
     <!-- PASSWORD GENERATOR -->
@@ -226,6 +246,10 @@
           <p>Use a different password for every account and store them in a password manager rather than reusing or memorizing them — reused passwords are one of the most common ways accounts get compromised after an unrelated breach.</p>
         </div>
       </div>
+        <div class="margin-note">
+          <label for="note-password">&#9998; leave yourself a note here (saved on this device only)</label>
+          <textarea class="note-input" id="note-password" data-note-id="password" rows="2" placeholder="e.g. — used this for the newsletter draft"></textarea>
+        </div>
     </details>
 
     <!-- SLUG GENERATOR -->
@@ -246,6 +270,10 @@
           <p>Most CMS platforms generate a slug automatically, but not always well — long titles get truncated awkwardly, special characters get left in. This tool applies the standard rules directly.</p>
         </div>
       </div>
+        <div class="margin-note">
+          <label for="note-slug">&#9998; leave yourself a note here (saved on this device only)</label>
+          <textarea class="note-input" id="note-slug" data-note-id="slug" rows="2" placeholder="e.g. — used this for the newsletter draft"></textarea>
+        </div>
     </details>
 
     <!-- LOREM IPSUM -->
@@ -270,6 +298,10 @@
           <p>It's been the industry-standard filler text since long before digital design — it carried over from print typesetting into web and app mockups.</p>
         </div>
       </div>
+        <div class="margin-note">
+          <label for="note-lorem">&#9998; leave yourself a note here (saved on this device only)</label>
+          <textarea class="note-input" id="note-lorem" data-note-id="lorem" rows="2" placeholder="e.g. — used this for the newsletter draft"></textarea>
+        </div>
     </details>
 
     <!-- AD SLOT: mid-grid -->
@@ -299,6 +331,10 @@
           <p>This uses standard JavaScript regex syntax. The <code>g</code> flag (global) finds every match instead of stopping at the first one; <code>i</code> makes it case-insensitive; <code>m</code> changes how <code>^</code> and <code>$</code> behave across multiple lines. Matches are highlighted directly in the text below so you can see exactly what the pattern is catching — and, just as importantly, what it's missing.</p>
         </div>
       </div>
+        <div class="margin-note">
+          <label for="note-regex">&#9998; leave yourself a note here (saved on this device only)</label>
+          <textarea class="note-input" id="note-regex" data-note-id="regex" rows="2" placeholder="e.g. — used this for the newsletter draft"></textarea>
+        </div>
     </details>
 
     <!-- COLOR CONVERTER -->
@@ -324,6 +360,10 @@
           <p>Paste any of the three formats in and the other two update automatically, along with a live swatch so you can confirm it's actually the shade you meant.</p>
         </div>
       </div>
+        <div class="margin-note">
+          <label for="note-color">&#9998; leave yourself a note here (saved on this device only)</label>
+          <textarea class="note-input" id="note-color" data-note-id="color" rows="2" placeholder="e.g. — used this for the newsletter draft"></textarea>
+        </div>
     </details>
 
     <!-- TIMESTAMP CONVERTER -->
@@ -357,6 +397,10 @@
           <p>The tradeoff is that a raw Unix timestamp like <code>1752192000</code> means nothing to a person at a glance. This tool converts it to a readable date in both your local time zone and UTC, and works in reverse — pick a date and get back the timestamp a system expects.</p>
         </div>
       </div>
+        <div class="margin-note">
+          <label for="note-timestamp">&#9998; leave yourself a note here (saved on this device only)</label>
+          <textarea class="note-input" id="note-timestamp" data-note-id="timestamp" rows="2" placeholder="e.g. — used this for the newsletter draft"></textarea>
+        </div>
     </details>
 
     <!-- TEXT DIFF -->
@@ -378,6 +422,10 @@
           <p>This is a line-based diff — it compares whole lines rather than individual words, the clearest view when comparing paragraphs, code, or structured text where line breaks carry meaning.</p>
         </div>
       </div>
+        <div class="margin-note">
+          <label for="note-diff">&#9998; leave yourself a note here (saved on this device only)</label>
+          <textarea class="note-input" id="note-diff" data-note-id="diff" rows="2" placeholder="e.g. — used this for the newsletter draft"></textarea>
+        </div>
     </details>
 
   </div>
@@ -386,6 +434,11 @@
 </div>
 
 <aside class="tools-sidebar">
+  <div class="sidebar-block" id="recent-block" style="display:none;">
+    <h3>Recently used</h3>
+    <ul id="recent-list"></ul>
+  </div>
+
   <div class="sidebar-block">
     <h3>Jump to a tool</h3>
     <ul>
