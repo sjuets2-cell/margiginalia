@@ -35,6 +35,111 @@ document.querySelectorAll('.copy-btn').forEach(btn => {
     });
     noResults.style.display = visibleCount === 0 ? 'block' : 'none';
   });
+
+  // keyboard shortcut: "/" focuses the filter box
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+      input.focus();
+    }
+    if (e.key === 'Escape' && document.activeElement === input) {
+      input.value = '';
+      input.dispatchEvent(new Event('input'));
+      input.blur();
+    }
+  });
+})();
+
+/* ---------- margin notes: saved per-tool, per-device ---------- */
+(() => {
+  const notes = document.querySelectorAll('.note-input');
+  if (!notes.length) return;
+  const STORAGE_PREFIX = 'marginalia-note-';
+
+  notes.forEach(textarea => {
+    const id = textarea.getAttribute('data-note-id');
+    try {
+      const saved = localStorage.getItem(STORAGE_PREFIX + id);
+      if (saved) textarea.value = saved;
+    } catch (e) { /* localStorage unavailable — notes just won't persist */ }
+
+    textarea.addEventListener('input', () => {
+      try {
+        if (textarea.value.trim()) {
+          localStorage.setItem(STORAGE_PREFIX + id, textarea.value);
+        } else {
+          localStorage.removeItem(STORAGE_PREFIX + id);
+        }
+      } catch (e) { /* ignore */ }
+    });
+  });
+})();
+
+/* ---------- recently used tracker ---------- */
+(() => {
+  const cards = document.querySelectorAll('.tool-card');
+  if (!cards.length) return;
+  const STORAGE_KEY = 'marginalia-recent';
+  const recentBlock = document.getElementById('recent-block');
+  const recentList = document.getElementById('recent-list');
+
+  const TOOL_NAMES = {
+    counter: 'Word & Character Counter', case: 'Case Converter', json: 'JSON Formatter',
+    base64: 'Base64 Encode / Decode', urlenc: 'URL Encode / Decode', password: 'Password Generator',
+    slug: 'Slug Generator', lorem: 'Lorem Ipsum Generator', regex: 'Regex Tester',
+    color: 'Color Converter', timestamp: 'Timestamp Converter', diff: 'Text Diff Checker'
+  };
+
+  function getRecent() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+    catch (e) { return []; }
+  }
+  function saveRecent(list) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch (e) { /* ignore */ }
+  }
+  function timeAgo(ts) {
+    const diff = Math.max(0, Date.now() - ts);
+    const mins = Math.floor(diff / 60000);
+    if (mins < 1) return 'just now';
+    if (mins < 60) return mins + 'm ago';
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 24) return hrs + 'h ago';
+    return Math.floor(hrs / 24) + 'd ago';
+  }
+
+  function renderRecent() {
+    const recent = getRecent();
+    if (!recent.length) { recentBlock.style.display = 'none'; return; }
+    recentBlock.style.display = '';
+    recentList.innerHTML = recent.slice(0, 5).map(item => {
+      const name = TOOL_NAMES[item.id] || item.id;
+      return `<li><a href="#${item.id}">${name}</a><span class="recent-time">${timeAgo(item.ts)}</span></li>`;
+    }).join('');
+  }
+
+  function markUsed(id) {
+    let recent = getRecent().filter(item => item.id !== id);
+    recent.unshift({ id, ts: Date.now() });
+    recent = recent.slice(0, 5);
+    saveRecent(recent);
+    renderRecent();
+    const badge = document.querySelector(`#${id} .tool-index`);
+    if (badge) badge.classList.add('was-used');
+  }
+
+  cards.forEach(card => {
+    card.addEventListener('toggle', () => {
+      if (card.open) markUsed(card.id);
+    });
+  });
+
+  // mark badges for tools already used in a previous visit
+  getRecent().forEach(item => {
+    const badge = document.querySelector(`#${item.id} .tool-index`);
+    if (badge) badge.classList.add('was-used');
+  });
+
+  renderRecent();
 })();
 
 /* ---------- 01: word & character counter ---------- */
